@@ -8,7 +8,7 @@ namespace BoxCorp.App {
         public Box[] FilterBoxes(Box[] boxes, double rankThreshold = 0.5) {
             //TODO:
             //Put your code to filter the boxes here
-            throw new NotImplementedException();
+            throw new NotImplementedException("You probably havent implemented the BoxFilter.FilterBoxes method");
         }
     }
 }
