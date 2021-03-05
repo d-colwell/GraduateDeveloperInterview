@@ -13,7 +13,7 @@ namespace BoxCorp.App {
             ///Your code should go into the FilterBoxes method
             Box[] remainingBoxes = filter.FilterBoxes(allBoxes);
             timer.Stop();
-            Console.WriteLine($"There are {remainingBoxes.Length} boxes remaining. Time taken: {timer.ElapsedMilliseconds}ms");
+            Console.WriteLine($"There are {remainingBoxes.Length} boxes remaining. Time taken: {timer.ElapsedMilliseconds}ms. Expected answer is about 2500");
         }
     }
 }
