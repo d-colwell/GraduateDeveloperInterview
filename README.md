@@ -46,6 +46,8 @@ A solution exists in [the src directory](./src). This solution contains a sample
 2. Code hygiene
 3. Performance of the code against a benchmark
 
+As a guide, a correct solution will yield approx 2500 boxes remaining after the algorithm is complete
+
 ### Task 2:
 We have written an acceptance criteria with inputs and outputs. You are to write a unit test to validate the results of your code
 
