@@ -12,6 +12,8 @@ An example of a box file would look like this:
 |----|----|----|----|----|----|
 | 1 | 2 | 2 | 4 | 3 | 0.6 |
 | 2 | 3 | 9 | 12 | 8 | 0.9 |
+
+
 The first item would give a box that looks like this:
 
 
