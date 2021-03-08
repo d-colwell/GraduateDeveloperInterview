@@ -41,14 +41,17 @@ We want a list of all boxes in a file that *do not* get suppressed by the above 
 ## What do we want you to do?
 
 ### Task 1:
-A solution exists in [the src directory](./src). This solution contains a sample [box file](./src/BoxCorp/BoxCorp.App/boxes.csv).  Write a program to satisfy the requirements above. You will be judged based on:
+A solution exists in [the src directory](./src). This solution contains a sample [box file](./src/BoxCorp/BoxCorp.App/boxes.csv).  
+Implement your solution in the `BoxFilter.cs` file.
+There are a suite of tests, which will tell you when your solution is correct.
+You will be judged based on:
 1. Accuracy of the algorithm
-2. Code hygiene
+2. Code Cleanliness
 3. Performance of the code against a benchmark
 
-As a guide, a correct solution will yield approx 2500 boxes remaining after the algorithm is complete
+As a guide, a correct solution will yield 2510 boxes remaining after the algorithm is complete
 
 ### Task 2:
-We have written an acceptance criteria with inputs and outputs. You are to write a unit test to validate the results of your code
+Extend the unit tests to cover some of the additional scenarios. An example is below:
 
 ![](./Images/acceptance.png)
