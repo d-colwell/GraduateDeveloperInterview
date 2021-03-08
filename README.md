@@ -1,8 +1,6 @@
 # CorpCorp Box Decisioning Algoritm
 ## Our Objective
-We here at Corpcorp are very concerned with Boxes. People often send us files full of boxes, and we are then responsible for chosing the best boxes out of this file. In order to get only the finest boxes we:
-1. Look for overlapping boxes and choose the best 1 based on a formula
-2. Remove any poorly ranked boxes
+We here at Corpcorp are very concerned with Boxes. As a reputable brand, and purveyor of fine rectangles, we are looking to automate the process of determining which are the best. People often send us files full of boxes, and we are then responsible for chosing the best boxes out of this file. Your objective is to build us an algorithm that searches through the boxes that people send us, and only yields the finest of them.
 
 ## How do we choose the best boxes? 
 Boxes come in CSV files, with 6 columns and a single header record. The columns are the Index, 2 integer coordinates (`X,Y`), 2 integer dimensions (`Width,Height`), and one decimal value (`Rank`) (between 0 and 1) representing the Rank. Rank is a representation of how important the box is, with a larger value (e.g 0.8) being more important than a smaller value (e.g. 0.4). There may be an arbitrarily large number of boxes in the file.
