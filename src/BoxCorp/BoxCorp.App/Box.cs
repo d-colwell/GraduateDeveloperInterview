@@ -6,7 +6,8 @@ using System.Text;
 namespace BoxCorp.App {
     public class Box {
         public Box() { }
-        public Box(int x, int y, int width, int height, double rank) {
+        public Box(int index,int x, int y, int width, int height, double rank) {
+            this.Index = index;
             this.Rectangle = new Rectangle(x, y, width, height);
             this.Rank = rank;
         }
@@ -16,9 +17,10 @@ namespace BoxCorp.App {
                 int.Parse(record[1]),
                 int.Parse(record[2]),
                 int.Parse(record[3]),
-                double.Parse(record[4]));
+                int.Parse(record[4]),
+                double.Parse(record[5]));
         }
-
+        public int Index { get; set; }
         public Rectangle Rectangle { get; private set; }
         public double Rank { get; private set; }
     }

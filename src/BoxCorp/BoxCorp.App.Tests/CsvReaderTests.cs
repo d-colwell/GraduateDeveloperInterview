@@ -20,7 +20,7 @@ namespace BoxCorp.App.Tests {
 
         [TestMethod]
         public void HeaderSkippingWorks() {
-            File.WriteAllText("header.csv","header\r\n0,0,10,10,0.2");
+            File.WriteAllText("header.csv","header\r\n0,0,0,10,10,0.2");
             var result = parser.ParseFileToBoxes("header.csv");
             Assert.AreEqual(1, result.Length);
             Assert.IsTrue(result[0].Rank == 0.2);
