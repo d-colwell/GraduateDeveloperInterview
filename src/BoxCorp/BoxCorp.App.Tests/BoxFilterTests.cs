@@ -17,18 +17,43 @@ namespace BoxCorp.App.Tests {
         [TestMethod]
         public void DidYouPass() {
             var reader = new CsvParser();
-            var expectedBoxes= reader.ParseFileToBoxes("retained.csv").Select(b => b.Index).OrderBy(x=>x).ToArray();
+            var expectedBoxes = reader.ParseFileToBoxes("retained.csv").Select(b => b.Index).OrderBy(x => x).ToArray();
             var inputBoxes = reader.ParseFileToBoxes("boxes.csv");
             var actualBoxes = boxFilter.FilterBoxes(inputBoxes).Select(b => b.Index).OrderBy(x => x).ToArray();
-            Assert.IsTrue(expectedBoxes.SequenceEqual(actualBoxes), "Incorrect answer, expected boxes do not equal actual result");
+            Assert.IsTrue(expectedBoxes.SequenceEqual(actualBoxes), $"Incorrect answer, expected {expectedBoxes.Length} boxes, got {actualBoxes.Length} boxes");
         }
 
         [TestMethod]
-        public void TestOverlappingBoxes() {
-            var boxA = new Box(0,0, 0, 10, 10, 0.7);
-            var boxB = new Box(0, 2, 2, 10, 10, 0.6);
-            var remainingBoxes = boxFilter.FilterBoxes(new Box[] { boxA, boxB });
+        public void TestSuppressionOfOverlappingBoxes() {
+            var boxA = new Box(0, 0, 0, 10, 10, 0.7);
+            var boxB = new Box(1, 2, 2, 10, 10, 0.6);
+            var remainingBoxes = boxFilter.FilterBoxes(new Box[] { boxB, boxA });
             Assert.IsTrue(remainingBoxes[0].Index == 0);
+        }
+
+        [TestMethod]
+        public void TestNoSuppressionBelowThreshold() {
+            var boxA = new Box(0, 0, 0, 10, 10, 0.7);
+            var boxB = new Box(1, 0, 0, 4, 10, 0.6);
+            var remainingBoxes = boxFilter.FilterBoxes(new Box[] { boxB, boxA });
+            Assert.IsTrue(remainingBoxes.Length == 2);
+        }
+
+        [TestMethod]
+        public void TestSuppressionAboveThreshold() {
+            var boxA = new Box(0, 0, 0, 10, 10, 0.7);
+            var boxB = new Box(1, 0, 0, 6, 7, 0.6);
+            var remainingBoxes = boxFilter.FilterBoxes(new Box[] { boxB, boxA });
+            Assert.IsTrue(remainingBoxes.Length == 1);
+            Assert.IsTrue(remainingBoxes[0].Index == 0);
+        }
+
+        [TestMethod]
+        public void TestNotSuppressedWhenNoOverlap() {
+            var boxA = new Box(0, 0, 0, 5, 5, 0.7);
+            var boxB = new Box(1, 5, 0, 5, 5, 0.6);
+            var remainingBoxes = boxFilter.FilterBoxes(new Box[] { boxB, boxA });
+            Assert.IsTrue(remainingBoxes.Length == 2);
         }
 
         [TestMethod]
